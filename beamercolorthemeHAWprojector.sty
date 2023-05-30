@@ -1,0 +1,105 @@
+% !TEX root = ../main.tex
+%
+% Theme File for a projector presentation based on the Corporate Design 2022
+% of the Hamburg University of Applied Sciences.
+%
+% - Author:  Kevin Balybin
+% - License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% 
+% - Based on the repository https://github.com/jbeyerstedt/LaTeX-HAW-Beamertheme
+% - Contains sections of https://github.com/matze/mtheme
+%
+% \NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthemeHAWprojector}
+
+
+\definecolor{HAWprojector@black}{HTML}{2B2E34}
+\definecolor{HAWprojector@white}{HTML}{FFFFFF}
+\definecolor{HAWprojector@blue}{HTML}{003CA0}      % CMYK 100, 70, 0, 6
+\definecolor{HAWprojector@lightblue}{HTML}{A0BEDC} % CMYK  42, 16, 4, 0
+\definecolor{HAWprojector@midblue}{HTML}{0096D2}   % CMYK  85, 21, 0, 0
+
+\colorlet{HAWprojector@lightGray}{white!80!HAWprojector@black}
+\colorlet{HAWprojector@gray}{white!35!HAWprojector@black}
+\colorlet{HAWprojector@darkGray}{white!20!HAWprojector@black}
+\definecolor{HAWprojector@lightRed}{HTML}{FF8E6B}
+\colorlet{HAWprojector@darkRed}{red!80!HAWprojector@white}
+
+%% Background gradients
+% \colorlet{HAWprojector@dark@backgroundInner}{HAWprojector@black}
+% \colorlet{HAWprojector@dark@backgroundOuter}{HAWprojector@black}
+% \colorlet{HAWprojector@light@backgroundInner}{HAWprojector@white}
+% \colorlet{HAWprojector@light@backgroundOuter}{HAWprojector@white}
+
+%% Structures
+\setbeamercolor{frametitle}{fg=HAWprojector@blue}
+\setbeamercolor{framesubtitle}{fg=HAWprojector@gray}
+
+%% Text
+\setbeamercolor{normal text}{fg=HAWprojector@black, bg=HAWprojector@white}
+\setbeamercolor{structure}{fg=HAWprojector@black, bg=HAWprojector@white}
+\setbeamercolor{alerted text}{fg=HAWprojector@midblue}
+
+%% Items and links
+\setbeamercolor{item}{fg=HAWprojector@blue}
+\setbeamercolor{footnote mark}{fg=HAWprojector@blue}
+\hypersetup{urlcolor=HAWprojector@blue}
+
+%% Blocks
+\definecolor{blockLightGreen}{HTML}{14B03D}
+\setbeamercolor{example text}{fg=blockLightGreen}
+\setbeamercolor{titlelike}{use=normal text, parent=normal text}
+\setbeamercolor{palette primary}{%
+  use=normal text,
+  fg=normal text.bg,
+  bg=normal text.fg
+}
+
+\setbeamercolor{block title}{%
+  use=normal text,
+  fg=normal text.fg,
+  bg=normal text.bg!80!fg
+}
+\setbeamercolor{block body}{
+  use={block title, normal text},
+  bg=block title.bg!50!normal text.bg
+}
+\setbeamercolor{block title alerted}{%
+    use={block title, alerted text},
+    bg=block title.bg,
+    fg=alerted text.fg
+}
+\setbeamercolor{block title example}{%
+    use={block title, example text},
+    bg=block title.bg,
+    fg=example text.fg
+}
+\setbeamercolor{block body alerted}{use=block body, parent=block body}
+\setbeamercolor{block body example}{use=block body, parent=block body}
+
+%% Title
+\setbeamercolor{title}{fg=HAWprojector@blue, bg=HAWprojector@white}
+\setbeamercolor{subtitle}{fg=HAWprojector@blue, bg=HAWprojector@white}
+\setbeamercolor{author}{fg=HAWprojector@black, bg=HAWprojector@white}
+
+%% Footline
+\setbeamercolor{footline}{fg=HAWprojector@blue}
+\setbeamercolor{page number in head/foot}{fg=HAWprojector@black}
+\setbeamercolor{frame numbering}{fg=HAWprojector@black}
+
+% Code listings
+% \lstset{%
+%   basicstyle=\footnotesize\ttfamily,
+%   breakatwhitespace=false,
+%   breaklines=true,
+%   commentstyle=\color{green!60!black},
+%   extendedchars=true,
+%   keywordstyle=\color{HAWprojector@blue},
+%   showspaces=false,
+%   showstringspaces=false,
+%   showtabs=false,
+%   stringstyle=\color{violet}
+% }
+
+
+\endinput

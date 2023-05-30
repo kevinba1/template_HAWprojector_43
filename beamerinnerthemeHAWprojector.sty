@@ -1,0 +1,90 @@
+% !TEX root = ../main.tex
+%
+% Theme File for a projector presentation based on the Corporate Design 2022
+% of the Hamburg University of Applied Sciences.
+%
+% - Author:  Kevin Balybin
+% - License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% 
+% - Based on the repository https://github.com/jbeyerstedt/LaTeX-HAW-Beamertheme
+% - Contains sections of https://github.com/matze/mtheme
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerinnerthemeHAWprojector}
+
+\RequirePackage{etoolbox}
+\RequirePackage{calc}
+\RequirePackage{tikz}
+\RequirePackage{keyval}
+
+
+\newlength{\HAWprojector@parskip}
+\setlength{\HAWprojector@parskip}{0.5em}
+\setlength{\parskip}{\HAWprojector@parskip}
+\linespread{1.15}
+\define@key{beamerframe}{c}[true]{% centered
+  \beamer@frametopskip=0pt plus 1fill\relax%
+  \beamer@framebottomskip=0pt plus 1fill\relax%
+  \beamer@frametopskipautobreak=0pt plus .4\paperheight\relax%
+  \beamer@framebottomskipautobreak=0pt plus .6\paperheight\relax%
+  \def\beamer@initfirstlineunskip{}%
+}
+
+
+\setbeamertemplate{itemize items}{\textbullet}
+\setbeamertemplate{caption label separator}{: }
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{footnote}{%
+  \parindent 0em\noindent%
+  \raggedright
+  \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
+\def\inserttotalframenumber{100}
+\newlength{\HAWprojector@blocksep}
+\newlength{\HAWprojector@blockadjust}
+\setlength{\HAWprojector@blocksep}{0.75ex}
+\setlength{\HAWprojector@blockadjust}{0.25ex}
+\newcommand{\HAWprojector@block}[1]{
+  \par\vskip\medskipamount%
+  \setlength{\parskip}{0pt}
+  \ifbeamercolorempty[bg]{block title#1}{%
+    \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}
+  }{%
+    \ifbeamercolorempty[bg]{block title}{%
+      \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}%
+    }{%
+      \begin{beamercolorbox}[
+        sep=\dimexpr\HAWprojector@blocksep-\HAWprojector@blockadjust\relax,
+        leftskip=\HAWprojector@blockadjust,
+        rightskip=\dimexpr\HAWprojector@blockadjust plus 4em\relax
+      ]{block title#1}%
+    }
+  }%
+    \usebeamerfont*{block title#1}%
+    \insertblocktitle%
+  \end{beamercolorbox}%
+  \nointerlineskip%
+  \ifbeamercolorempty[bg]{block body#1}{%
+    \begin{beamercolorbox}[vmode]{block body#1}
+  }{%
+    \ifbeamercolorempty[bg]{block body}{%
+      \begin{beamercolorbox}[vmode]{block body#1}%
+    }{%
+      \begin{beamercolorbox}[sep=\HAWprojector@blocksep, vmode]{block body#1}%
+      \vspace{-\HAWprojector@parskip}
+    }
+  }%
+  \usebeamerfont{block body#1}%
+  \setlength{\parskip}{\HAWprojector@parskip}%
+  % end{beamercolorbox}: see beamertemplate{block end}
+}
+\setbeamertemplate{block begin}{\HAWprojector@block{}}
+\setbeamertemplate{block alerted begin}{\HAWprojector@block{ alerted}}
+\setbeamertemplate{block example begin}{\HAWprojector@block{ example}}
+\setbeamertemplate{block end}{\end{beamercolorbox}\vspace*{0.2ex}}
+\setbeamertemplate{block alerted end}{\end{beamercolorbox}\vspace*{0.2ex}}
+\setbeamertemplate{block example end}{\end{beamercolorbox}\vspace*{0.2ex}}
+
+
+\endinput

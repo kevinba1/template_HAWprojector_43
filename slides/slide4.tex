@@ -1,0 +1,82 @@
+% Folie 4 - Tabellen und Abbildungen
+
+\begin{frame}{Tabellen und Abbildungen}
+  \begin{itemize}
+    \item Benutze \texttt{tabular} für einfache Tabellen --- Gleich folgen drei Beispiele, wie man in LaTeX Tabellen behandeln kann.
+    \item Außerdem kann man Abbildungen in verschiedenen Formaten einbinden (JPEG, PNG oder PDF).
+    \item Zum einbinden der Abbildungen wird \texttt{includegraphics} benutzt.
+  \end{itemize}
+
+\end{frame}
+
+
+
+% Folie 5 - Einfache Tabelle
+\subsection{Einfache Tabelle}
+
+\begin{frame}{Eine einfache Tabelle}
+  Hier folgt eine \alert{einfache} Tabelle:
+  \begin{table}
+    \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      Größe & Einheit \\
+      \hline
+      Spannung & Volt (V) \\
+      Stromstärke & Ampere (A) \\
+      Widerstand & Ohm ($\Omega$) \\
+      Leistung & Watt (W) \\
+      \hline
+    \end{tabular}
+    \caption{Eine einfache Tabelle.}
+  \end{table}
+\end{frame}
+
+
+% Folie 6 - Komplexe Tabelle
+\subsection{Komplexe Tabelle}
+
+\begin{frame}{Eine komplexe Tabelle}
+  Hier folgt eine \alert{komplexe} Tabelle:
+  \begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \multirow{2}{*}{\textbf{Name}} & \multicolumn{2}{c|}{\textbf{Daten}} & \multirow{2}{*}{\textbf{Gesamt}} \\
+      \cline{2-3}
+       & \textbf{Wert 1} & \textbf{Wert 2} & \\
+      \hline
+      Komponente 1 & 10 & 20 & 30 \\
+      Komponente 2 & 5 & 15 & 20 \\
+      \hline
+      \multicolumn{3}{|c|}{\textbf{Summe}} & 50 \\
+      \hline
+    \end{tabular}
+    \caption{Eine komplexe Tabelle.}
+  \end{table}
+\end{frame}
+
+% Folie 8 - Abbildungen
+\subsection{Ausgelagerte Tabelle}
+
+\begin{frame}{Eine augelagerte Tabelle}
+  \begin{itemize}[label=\textbullet]
+    \item In \LaTeX kann man Tabellen auch in eigene \texttt{.tex-Datein} auslagern.
+    \item Das spart Platz und ist bei der Bearbeitung übersichtlicher.
+  \end{itemize}
+  
+  \input{tables/table3.tex}
+  
+\end{frame}
+
+
+% Folie 8 - Abbildungen
+\subsection{Abbildungen}
+
+\begin{frame}{Abbildungen}
+  So kann eine Abbildung hinzugefügt werden:
+  \begin{figure}
+  \includegraphics[width=8cm]{images/latex_logo.png}
+  \caption{Untertitel.}
+  \end{figure}
+\end{frame}

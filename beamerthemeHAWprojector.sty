@@ -1,0 +1,71 @@
+% !TEX root = ../main.tex
+%
+% Theme File for a projector presentation based on the Corporate Design 2022
+% of the Hamburg University of Applied Sciences.
+%
+% - Author:  Kevin Balybin
+% - License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% 
+% - Based on the repository https://github.com/jbeyerstedt/LaTeX-HAW-Beamertheme
+% - Contains sections of https://github.com/matze/mtheme
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeHAWprojector}
+
+\RequirePackage{etoolbox}
+\RequirePackage{pgfopts}
+\RequirePackage{graphicx}
+\RequirePackage{appendixnumberbeamer}
+
+
+% Config Commands
+\newcommand{\faculty}[1]{\newcommand{\Ifaculty}{#1}}
+\newcommand{\footerinfo}[1]{\newcommand{\Ifooterinfo}{#1}}
+
+% Resize pages to a4paper
+\RequirePackage{pgfpages}
+\pgfpagesuselayout{resize to}[physical paper width=4cm, physical paper height=3cm,border shrink=1.5mm]
+
+
+% Settings
+\useinnertheme{HAWprojector}
+\useoutertheme{HAWprojector}
+\usecolortheme{HAWprojector}
+\usefonttheme{HAWprojector}
+
+\setbeamertemplate{headline}[plain]
+\setbeamertemplate{frametitle}[plain]
+
+\setbeamertemplate{footline}[plain]
+\setbeamertemplate{frame footer}[haw_cd2022]
+\setbeamertemplate{frame numbering}[counter]
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\setbeamertemplate{section page}[simple]
+
+% \HAWprojector@enablesectionpage
+\HAWprojector@disablesectionpage
+
+% \HAWprojector@enablesubsectionpage
+\HAWprojector@disablesubsectionpage
+
+
+
+% Additional Commands
+\newcommand{\mreducelistspacing}{\vspace{-\topsep}}
+
+\def\maketitle{%
+  \ifbeamer@inframe
+    \titlepage
+  \else
+    \frame[plain,noframenumbering]{\titlepage}
+  \fi
+}
+\def\titlepage{%
+  \usebeamertemplate{title page}
+}
+
+
+\endinput

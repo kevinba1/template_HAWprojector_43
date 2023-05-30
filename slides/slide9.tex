@@ -1,0 +1,75 @@
+% Folie 9 - Mathematische Schreibweisen
+
+\begin{frame}{Mathematische Schreibweisen}
+In diesem Abschnitt werden paar mathematsche Schreibweisen in LaTeX gezeigt. Außerdem folgt ein Beispiel-Schaltplan.
+      
+\end{frame}
+
+
+\subsection{Beispiel 1}
+\begin{frame}{Beispiel 1}
+Sei $n$ eine natürliche Zahl, $n!=1 \cdot 2 \cdots n$ und
+\[
+\binom{n}{k} = \frac{n!}{(n-k)!k!} =
+\frac{n(n-1)(n-2)\cdots(n-k+1)}{1 \cdots (k-2)(k-1)k} \,.
+\]
+Für beliebige reelle Zahlen $a$ und $b$ gilt
+
+\begin{equation}
+(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^{n-k} b^k \,.
+\label{binomischer_Satz}
+\end{equation}
+
+Die Gleichung \eqref{binomischer_Satz} wird als {\em Binomischer Satz} bezeichnet.
+      
+\end{frame}
+
+
+
+\subsection{Beispiel 2}
+\begin{frame}{Beispiel 2}
+Beispiel
+Determinante der Vandermonde-Matrix (manuelle Positionierung)\[
+\left|\left(\begin{array}{ccccc}
+1 & x_1 & x_1^2 & \cdots & x_1^{n-1} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & x_n & x_n^2 & \cdots & x_n^{n-1}
+\end{array}\right)\right| = \prod_{k>j}(x_k-x_j) \,.
+\]
+      
+\end{frame}
+
+
+
+\subsection{Beispiel 3}
+\begin{frame}{Beispiel 3}
+      Ein einfacher Schaltplan mit wenigen Komponenten.
+\centering
+
+\begin{circuitikz}
+      
+      % Spannungsquelle
+      \draw (0,0) to [european voltage source, l=$U_1$] (0,0) to (0,2);
+      
+      % Schalter
+      \draw (0,2) to [normal open switch] (2,2);
+      
+      % Kondensator
+      \draw (2,2) to [C, l=$C_1$] (4,2) to (4,1);
+      
+      % Widerstand 1
+      \draw (4,1) to (3,1) to [R, l_=$R_1$] (3,-1) to (4,-1);
+      
+      % Widerstand 2
+      \draw (4,1) to (5,1) to [R, l=$R_2$] (5,-1) to (4,-1);
+      
+      % Lampe
+      \draw (4,-1) to (4,-2) to [lamp] (0,-2) to (0,0);
+      
+      % Knotenpunkte
+      \draw (4,1) node[circ]{};
+      \draw (4,-1) node[circ]{};
+  \end{circuitikz}
+
+      
+\end{frame}

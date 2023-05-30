@@ -1,0 +1,54 @@
+% !TEX root = ../main.tex
+%
+% Style File for a projector presentation based on the Corporate Design 2022
+% of the Hamburg University of Applied Sciences.
+%
+% - Author:  Kevin Balybin
+% - License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% 
+% - Based on the repository https://github.com/jbeyerstedt/LaTeX-HAW-Beamertheme
+% - Contains sections of https://github.com/matze/mtheme
+%
+\ProvidesPackage{styles/HAWprojectorstyle}
+
+\RequirePackage[utf8]{inputenc}     % Universal encoding
+
+\RequirePackage[ngerman]{babel}     % German translation
+\RequirePackage[T1]{fontenc}        % Font encoding
+% \RequirePackage[default,osfigures,scale=0.95]{opensans} % font: open sans
+\RequirePackage[default]{lato}
+\RequirePackage{courier}            % Courier as \ttdefault
+
+\RequirePackage{graphicx}           % Include graphics to document
+% \RequirePackage[hyphens]{url}       % Line break support in URL: does not work "option clash"
+\RequirePackage{url}
+\RequirePackage[htt]{hyphenat}      % hyphenation in texttt
+\RequirePackage{siunitx}            % SI-Unit support
+\RequirePackage[autostyle=true,german=quotes]{csquotes} % german quotes with \enquote{}
+
+\RequirePackage{listings}           % Code listings
+\RequirePackage{scrhack}            % Fix KOMA-Script issues with listings
+\RequirePackage{xcolor}             % Colored text
+\RequirePackage{colortbl}           % Colored rows etc.
+\RequirePackage{booktabs}
+
+
+\RequirePackage{enumitem}           % Easier and more powerul enumerations
+
+\RequirePackage[intoc,german,prefix]{nomencl}   % Abbreviations with \nomenclature
+\setlength{\nomitemsep}{-\parsep}               % Smaller space between entries
+\RequirePackage[toc,acronym]{glossaries}        % Glossary and list of acronyms
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+\RequirePackage{graphicx}           % Include graphics to document
+\RequirePackage{subcaption}         % Multiple pictures next to each other
+\RequirePackage{multirow}           % Multiple rows in tabular
+
+\RequirePackage[european]{circuitikz}         % Drawing of Schematics [european]
+
+\RequirePackage[style=alphabetic]{biblatex}
+
+\parindent0pt                       % First line starts imediately

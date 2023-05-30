@@ -1,0 +1,182 @@
+% !TEX root = ../main.tex
+%
+% Theme File for a projector presentation based on the Corporate Design 2022
+% of the Hamburg University of Applied Sciences.
+%
+% - Author:  Kevin Balybin
+% - License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% 
+% - Based on the repository https://github.com/jbeyerstedt/LaTeX-HAW-Beamertheme
+% - Contains sections of https://github.com/matze/mtheme
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerouterthemeHAWprojector}
+
+\RequirePackage{etoolbox}
+\RequirePackage{calc}
+\RequirePackage{ifthen}
+
+
+\newlength\HAWprojector@lengths@logoheight
+\setlength\HAWprojector@lengths@logoheight{15mm}
+\newlength\HAWprojector@lengths@logoheightsmall
+\setlength\HAWprojector@lengths@logoheightsmall{8mm}
+\newlength{\HAWprojector@footlineseperator@linewidth}
+\setlength{\HAWprojector@footlineseperator@linewidth}{1pt}
+
+\setbeamersize{text margin left = 1mm}
+
+
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate{frame footer}{none}{}
+\defbeamertemplate{frame footer}{haw_cd2022}{
+  \begin{tikzpicture}%
+    \fill[HAWprojector@lightGray] (0,0) rectangle (\textwidth, \HAWprojector@footlineseperator@linewidth);
+  \end{tikzpicture}%
+  \par%
+  \vspace{0.8em}%
+  %
+  \Ifaculty \par%
+  \vspace{0.3em}%
+  \textmd{\tiny \insertauthor, \Ifooterinfo}%
+  \vspace{0.1em}%
+  %
+  \begin{tikzpicture}[remember picture, overlay]%
+    \node[at=(current page.south east), anchor=south east, inner sep=0] {
+      \includegraphics[height=\HAWprojector@lengths@logoheightsmall]{logo_haw.jpg}};
+  \end{tikzpicture}%
+}
+\defbeamertemplate{frame numbering}{none}{}
+\defbeamertemplate{frame numbering}{counter}{\insertframenumber}
+\defbeamertemplate{frame numbering}{fraction}{
+  \insertframenumber/\inserttotalframenumber
+}
+\defbeamertemplate{headline}{plain}{}
+\defbeamertemplate{footline}{plain}{%
+  \begin{beamercolorbox}[wd=\textwidth, ht=7mm, sep=0em]{footline}%
+    \ifnum\c@framenumber=0\else%
+      \hfill \usebeamertemplate*{frame numbering}%
+      \par%
+      \vspace{2mm}%
+      %
+      \usebeamertemplate*{frame footer}%
+    \fi%
+  \end{beamercolorbox}%
+}
+
+\newlength{\HAWprojector@frametitle@padding}
+\setlength{\HAWprojector@frametitle@padding}{1ex}
+\newcommand{\HAWprojector@frametitlestrut@start}{
+  \rule{0pt}{\HAWprojector@frametitle@padding + \totalheightof{{X}} }
+}
+\newcommand{\HAWprojector@frametitlestrut@end}{
+  \rule[-\HAWprojector@frametitle@padding]{0pt}{\HAWprojector@frametitle@padding}
+}
+\defbeamertemplate{frametitle}{plain}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0pt]{frametitle}%
+    \HAWprojector@frametitlestrut@start%
+    \insertframetitle%
+    \nolinebreak%
+    \HAWprojector@frametitlestrut@end%
+  \end{beamercolorbox}%
+}
+\setbeamertemplate{frametitle continuation}{%
+  \usebeamerfont{frametitle}
+  \romannumeral \insertcontinuationcount
+}
+
+\setbeamertemplate{title page}{
+  \setcounter{framenumber}{0}   % needed for slide numbering
+  \begin{minipage}[b][\paperheight]{\textwidth}
+    \vfill%
+    \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+    \vspace*{3em}
+    \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+    \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+    \vfill
+    \vspace*{1mm}
+  \end{minipage}
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[at=(current page.south east), anchor=south east,inner sep=2mm] {
+      \includegraphics[height=\HAWprojector@lengths@logoheight]{logo_haw.jpg}};
+  \end{tikzpicture}
+}
+\setbeamertemplate{title}{
+  \raggedright%
+  \linespread{1.0}%
+  \inserttitle%
+  \par%
+  \vspace*{0.5em}
+}
+\setbeamertemplate{subtitle}{
+  \raggedright%
+  \insertsubtitle%
+  \par%
+  \vspace*{0.5em}
+}
+\setbeamertemplate{author}{
+  \insertauthor%
+  \par%
+}
+\setbeamertemplate{institute}{
+  \insertinstitute%
+  \par%
+}
+\setbeamertemplate{date}{
+  \insertdate%
+  \par%
+}
+
+\defbeamertemplate{section page}{simple}{
+  \begin{center}
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \insertsectionhead\par
+    \ifx\insertsubsectionhead\@empty\else
+      \usebeamercolor[fg]{subsection title}
+      \usebeamerfont{subsection title}
+      \insertsubsectionhead
+    \fi
+  \end{center}
+}
+\newcommand{\HAWprojector@disablesectionpage}{
+  \AtBeginSection{
+    % intentionally empty
+  }
+}
+\newcommand{\HAWprojector@enablesectionpage}{
+  \AtBeginSection{
+    \ifbeamer@inframe
+      \sectionpage
+    \else
+      % \frame[plain,c,noframenumbering]{\sectionpage}
+      \frame[plain,c]{\sectionpage}
+    \fi
+  }
+}
+
+\setbeamertemplate{subsection page}{%
+  \usebeamertemplate*{section page}
+}
+\newcommand{\HAWprojector@disablesubsectionpage}{
+  \AtBeginSubsection{
+    % intentionally empty
+  }
+}
+\newcommand{\HAWprojector@enablesubsectionpage}{
+  \AtBeginSubsection{
+    \ifbeamer@inframe
+      \subsectionpage
+    \else
+      % \frame[plain,c,noframenumbering]{\subsectionpage}
+      \frame[plain,c]{\subsectionpage}
+    \fi
+  }
+}
+
+
+\endinput

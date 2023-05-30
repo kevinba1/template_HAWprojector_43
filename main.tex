@@ -1,0 +1,119 @@
+% !TEX root = main.tex
+%
+% An example of a projector presentation based on the Corporate Design 2022
+% of the Hamburg University of Applied Sciences.
+%
+% - Author:  Kevin Balybin
+% - License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% 
+% - Based on the repository https://github.com/jbeyerstedt/LaTeX-HAW-Beamertheme
+% - Contains sections of https://github.com/matze/mtheme
+%
+%
+
+\documentclass[aspectratio=43,10pt]{beamer}
+
+\usetheme{HAWprojector}
+\usepackage{styles/HAWprojectorstyle}
+
+
+
+\addbibresource{literature.bib}
+
+% CUSTOM SETTINGS
+% \setcounter{tocdepth}{3}
+% \setcounter{secnumdepth}{3}
+% \usepackage{tabularx}
+\renewcommand{\arraystretch}{1.5}   % less crammed tables
+
+% MANUAL HYPHENATION (whitespace separated items)
+\hyphenation{}
+
+% CUSTOM UNITS
+\sisetup{locale = DE}
+% \DeclareSIUnit \fps {fps}   % a custom unit (usage: \fps{25})
+
+% use a) ABBREVIATIONS
+% \nomenclature[UDP]{UDP}{User Datagram Protocol}
+\makenomenclature
+
+% or b) GLOSSARY AND ACRONYMS
+% \newglossaryentry{CBC}{name=CBC, description={Cipher Block Chaining. Betriebsart des symmetrischen Kryptografie-Algorithmus AES}}
+% \newacronym{iot}{IoT}{Internet of Things}
+% \newacronym[see={[Glossary:]{ota_long}}]{ota}{OTA}{Over the Air\glsadd{ota_long}}
+\makeglossaries
+
+
+
+
+%-----------------------%
+% DOCUMENT / TITLE PAGE %
+%-----------------------%
+
+\title[HAW Hamburg Projector]{Presentation template}
+\subtitle{Template for presentations}
+\author{Arthur Dent}
+\institute{Hochschule für Angewandte Wissenschaften Hamburg}
+\date{25.05.2023}
+
+\faculty{Abteilung oder Fakultät}
+\footerinfo{Kleine Fußnote (mehr Infos\dots)}
+
+
+%-----------------------%
+% TITLE PAGE            %
+%-----------------------%
+
+\begin{document}
+\maketitle
+
+
+%-----------------------%
+% OUTLINE / TOC         %
+%-----------------------%
+
+\begin{frame}{Gliederung}
+  \tableofcontents
+%  \tableofcontents[hideallsubsections]
+\end{frame}
+
+%-----------------------%
+% SLIDES                %
+%-----------------------%
+
+% Folie 1 - Disclaimer
+\section{Disclaimer}
+\input{slides/slide1.tex}
+
+
+% Folie 2 - Beispiele für Texte
+\section{Beispiele für Texte}
+\input{slides/slide2.tex}
+
+
+% Folie 3 - Textblöcke
+\section{Textblöcke}
+\input{slides/slide3.tex}
+
+% Folie 4 - Tabellen und Abbildungen (in einer TeX)
+\section{Tabellen und Abbildungen}
+\input{slides/slide4.tex}
+
+
+% Folie 9 - Mathematsche Schreibweisen
+\section{Mathematsche Schreibweisen}
+\input{slides/slide9.tex}
+
+
+% Folie 10 - References
+\section{References}
+\input{slides/slide10.tex}
+
+
+% Folie 11 - References i
+\begin{frame}[allowframebreaks]{References}
+  \printbibliography
+\end{frame}
+
+
+\end{document}
